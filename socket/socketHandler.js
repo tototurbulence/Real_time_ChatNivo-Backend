@@ -89,8 +89,7 @@ module.exports = (io) => {
         // Send message
         socket.on('message:send', async({ roomId, content }) => {
             try {
-                if (!content ? .trim()) return;
-
+if (!content?.trim()) return;
                 const message = new Message({ content: content.trim(), sender: user._id, room: roomId });
                 await message.save();
                 await message.populate('sender', 'username avatar');
